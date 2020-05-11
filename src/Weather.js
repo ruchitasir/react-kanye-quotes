@@ -74,25 +74,3 @@ const Weather = (props) => {
 export default Weather
 
 
-/*
-useEffect will be triggered upon render. We always got an error. The reason it wasn't so apparent with axios is that axios returns undefined but fetch returns a response. Then, the code attempts to treat the response the same way we treat the object. Easy fix!
-
-6:51
-FIX 1: let [query, setQuery] = useState('')
-6:54
-FIX 2: useEffect(() => { // called everytime query changes (user submits the form)
-    const fetchData = async () => {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${query},us&appid=fba0ff0095bb2923a9c322e7570df02b`)
-        .then(result => result.json())
-        .then(result => {
-          setWeather(result)
-        })
-    }
-    if(query.length > 0) {
-      fetchData()
-    }
-  }, [query])
-6:54
-everything else is as is
-6:54
-*/
